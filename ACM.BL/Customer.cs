@@ -15,11 +15,10 @@ namespace ACM.BL
             this.AddressList = new List<Address>();
         }
         public int CustomerId { get; private set; }
+        public int CustomerType { get; set; }
         public List<Address> AddressList { get; set; }
         public string EmailAddress { get; set; }
-
         public string FirstName { get; set; }
-
         public string FullName
         {
             get
@@ -52,7 +51,7 @@ namespace ACM.BL
         }
 
         public static int InstanceCount { get; set; }
-
+        public override string ToString() => FullName;
         /// <summary>
         /// Validates the customer data.
         /// </summary>
