@@ -25,6 +25,9 @@ namespace ACM.BL
                 product.ProductDescription = "Assorted size set of 4 Bright Yellow Mini Sunflowers";
                 product.ProductName = "SunFlowers";
             }
+            Object myObject = new Object();
+            Console.WriteLine($"Object: {myObject.ToString()}");
+            Console.WriteLine($"Product: {product.ToString()}");
             return product;
         }
 
@@ -35,8 +38,28 @@ namespace ACM.BL
         /// <returns>True or False</returns>
         public bool Save(Product product)
         {
-            // Code that saves the passed in Product
-            return true;
+            var success = true;
+
+            if (product.HasChanges)
+            {
+                if (product.IsValid)
+                {
+                    if (product.IsNew)
+                    {
+                        // Call an Insert Stored Procedure
+
+                    }
+                    else
+                    {
+                        // Call an Update Stored Procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }
